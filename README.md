@@ -1,5 +1,5 @@
 # Servidor de desafios da disciplina Design de Software
-## www.docs.com
+## https://gabrielzezze.github.io/softdes-desafios/
 
 Este prjeto é o servidor de desafios usado na disciplina Design de Software do primeiro semestre de engenharia do Insper.
 O servidor tinha a funcao de disponibilizar desafios para os alunos fazerem enviarem os arquivos com as respostas. Essas respostas serão testadas na hora, retornado o resultado do desafio. Será retornado um OK caso o desafio satisfaça o proposito e um erro caso não.
