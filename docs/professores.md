@@ -6,7 +6,7 @@ Este é um tutorial para você que é professor e deseja utilziar nosso servidor
 
 ### 1. Adicionando novos usuários
 
-A adição de alunos é feita através do script `adduser.py`. Ele pode ser acessado [clicando aqui](../src/adduser.py).
+A adição de alunos é feita através do script `adduser.py`. Ele pode ser acessado [clicando aqui](https://github.com/gabrielzezze/softdes-desafios/blob/main/src/adduser.py).
 
 Para utilizá-lo, tenha em mãos as informações dos usuários que serão adicionados. Estes devem estar em um arquivo denominado `users.csv`, colocado no mesmo diretório que o script.
 
