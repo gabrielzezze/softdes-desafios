@@ -15,6 +15,6 @@ RUN rm -rf src/quiz.db
 RUN sqlite3 src/quiz.db
 RUN sqlite3 src/quiz.db '.read ./src/quiz.sql'
 
-# RUN pipenv run python3 src/adduser.py
+RUN pipenv run python3 src/adduser.py
 
 CMD pipenv run python3 /repo/src/softdes.py

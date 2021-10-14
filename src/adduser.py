@@ -14,11 +14,12 @@ def addUser(user, pwd, type):
     conn.close()
 
 
-with open("./src/users.csv", "r") as file:
-    lines = file.read().splitlines()
+if __name__ == "__main__":
+    with open("./src/users.csv", "r") as file:
+        lines = file.read().splitlines()
 
-for users in lines:
-    (user, type) = users.split(",")
-    print(user)
-    print(type)
-    addUser(user, hashlib.md5(user.encode()).hexdigest(), type)
+    for users in lines:
+        (user, type) = users.split(",")
+        print(user)
+        print(type)
+        addUser(user, hashlib.md5(user.encode()).hexdigest(), type)
