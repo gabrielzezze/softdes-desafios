@@ -17,6 +17,19 @@ O servidor tinha a funcao de disponibilizar desafios para os alunos fazerem envi
 
 A partir de agora voce possui o servidor de desafios rodando em http://localhost:80/
 
+## How to test
+1. Baixe o driver do Chrome e insira em uma pasta denominada `drivers`, dentro da pasta `test`. O driver deve ser nomeado `chromedriver`.
+2. Para executar os testes unitários, rode a partir da raiz do repositório:
+
+```shell
+pipenv run pytest test/unit_test.py
+```
+
+3. Para executar os testes de interface, rode a partir da raiz do repositório:
+
+```shell
+pipenv run pytest test/interface_test.py
+```
 
 <!-- # Criacao de usuario
 
