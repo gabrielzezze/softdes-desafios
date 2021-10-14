@@ -9,6 +9,8 @@ flask-httpauth = "*"
 mkdocs = "*"
 pylint = "*"
 autopep8 = "*"
+pytest = "*"
+selenium = "*"
 
 [dev-packages]
 
