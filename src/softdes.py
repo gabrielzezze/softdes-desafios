@@ -15,7 +15,6 @@ from flask import (
     render_template,
 )
 from flask_httpauth import HTTPBasicAuth
-# from .util import converteData, lambda_handler
 
 DBNAME = "./quiz.db"
 

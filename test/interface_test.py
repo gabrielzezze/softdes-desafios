@@ -13,6 +13,7 @@ class InterfacesTest(unittest.TestCase):
     HOST_URL = "127.0.0.1:8080"
 
     def setUp(self):
+        os.system("./start.sh")
         serv = Service(ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=serv)
     
