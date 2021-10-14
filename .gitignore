@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 
 respostas-desafio/
+.vscode/
