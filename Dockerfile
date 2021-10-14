@@ -9,6 +9,8 @@ RUN git clone https://github.com/gabrielzezze/softdes-desafios.git ./repo
 
 WORKDIR /repo/
 
+RUN git checkout tests
+
 RUN pipenv install
 
 RUN rm -rf src/quiz.db

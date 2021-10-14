@@ -15,7 +15,6 @@ from flask import (
     render_template,
 )
 from flask_httpauth import HTTPBasicAuth
-from util import converteData, lambda_handler
 
 DBNAME = "./quiz.db"
 
@@ -195,7 +194,7 @@ def main():
             msg = "Sorry... Prazo expirado!"
 
         answer_file = request.files["code"]
-        filename = "./upload/{0}-{1}.py".format(auth.username(), sent)
+        filename = "./src/upload/{0}-{1}.py".format(auth.username(), sent)
         answer_file.save(filename)
         with open(filename, "r", encoding="UTF-8") as file_buffer:
             answer = file_buffer.read()
@@ -321,6 +320,54 @@ def hash_pw(password):
     Handle password string hashing
     """
     return hashlib.md5(password.encode()).hexdigest()
+
+def lambda_handler(event, context):
+    try:
+        import json
+        import numbers
+
+        def not_equals(first, second):
+            if isinstance(first, numbers.Number) and isinstance(second, numbers.Number):
+                return abs(first - second) > 1e-3
+            return first != second
+
+        # TODO implement
+        ndes = int(event["ndes"])
+        code = event["code"]
+        args = event["args"]
+        resp = event["resp"]
+        diag = event["diag"]
+        exec(code, locals())
+
+        test = []
+        for index, arg in enumerate(args):
+            if not "desafio{0}".format(ndes) in locals():
+                return "Nome da função inválido. Usar 'def desafio{0}(...)'".format(
+                    ndes
+                )
+
+            if not_equals(eval("desafio{0}(*arg)".format(ndes)), resp[index]):
+                test.append(diag[index])
+
+        return " ".join(test)
+    except:
+        return "Função inválida."
+
+
+def converteData(orig):
+    return (
+        orig[8:10]
+        + "/"
+        + orig[5:7]
+        + "/"
+        + orig[0:4]
+        + " "
+        + orig[11:13]
+        + ":"
+        + orig[14:16]
+        + ":"
+        + orig[17:]
+    )
 
 
 if __name__ == "__main__":
