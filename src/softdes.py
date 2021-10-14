@@ -195,7 +195,7 @@ def main():
             msg = "Sorry... Prazo expirado!"
 
         answer_file = request.files["code"]
-        filename = "./upload/{0}-{1}.py".format(auth.username(), sent)
+        filename = "./src/upload/{0}-{1}.py".format(auth.username(), sent)
         answer_file.save(filename)
         with open(filename, "r", encoding="UTF-8") as file_buffer:
             answer = file_buffer.read()
